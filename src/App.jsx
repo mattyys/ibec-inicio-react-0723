@@ -1,34 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+//se importa componente button
+import Button from './components/Button/Button';
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
+//todo xml que va dentro de un return
   return (
+    //no puede devolver mas de 1 elemento, todo tiene que estar dentro de una etiqueta contenedora
+    //se utiliza <Fragment> para o <> para envolver el contenido y al momento de compilar no se muestra, se diseñaron para no llenar de div las paginas
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+     <Button title='Action 1' />
+     <Button title='pedito' />
+     <Button title='Action 3' />
+     </>
   )
 }
 
