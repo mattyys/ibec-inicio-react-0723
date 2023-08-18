@@ -1,0 +1,12 @@
+.count-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-count {
+  color: #fff;
+  padding: 0 5px;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
