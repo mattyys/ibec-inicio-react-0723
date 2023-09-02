@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./ItemCount.css";
+import PropTypes from 'prop-types';
 
 function ItemCount({ stock, initial }) {
   const [count, setCount] = useState(initial);
@@ -34,3 +35,7 @@ function ItemCount({ stock, initial }) {
 }
 
 export default ItemCount;
+
+ItemCount.propTypes = {
+  
+}
