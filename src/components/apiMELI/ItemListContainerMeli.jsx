@@ -22,16 +22,17 @@ const ItemListContainerMeli = ({ query }) => {
       }); //se pasa al array products
   }, [query]); //este query es el que recibe del lado usuaruio par amodificar el contenido, sino no es reativo y nose actulaizan los datos
 
-  return(
-  <div>
-    {products.length > 0 ? 
-      products.map((product) => {
-        return <li key={product.id}>{product.title}</li>;
-      })
-     : (
-      <p>cargando productos...</p>
-    )}
-  </div>);
+  return (
+    <div>
+      {products.length > 0 ? (
+        products.map((product) => {
+          return <li key={product.id}>{product.title}</li>;
+        })
+      ) : (
+        <p>cargando productos...</p>
+      )}
+    </div>
+  );
 };
 
 export default ItemListContainerMeli;
