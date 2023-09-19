@@ -2,10 +2,18 @@
     position: relative;
 }
 .cart-widget__count{
-    position: relative;
-    top: -10px;
-    right: -10px;
+    position: absolute;
+    top: -4
+    px;
+    right: -2px;
     background-color: var(--primary-color);
     width: 14px;
+    height: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    border-radius: 50%;
+
     
 }

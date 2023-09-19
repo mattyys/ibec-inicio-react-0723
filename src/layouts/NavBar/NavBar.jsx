@@ -1,6 +1,8 @@
-import './NavBar.css'
-import { MdMenu} from "react-icons/md";
-const NAvBAr = () => {
+import "./NavBar.css";
+import { MdMenu } from "react-icons/md";
+import CartWidget from "../../components/CartWidget/CartWidget";
+
+const NavBar = () => {
   return (
     <header className="navbar-container">
       <div>
@@ -8,9 +10,7 @@ const NAvBAr = () => {
         <span>Menu</span>
       </div>
       <img src="" alt="logo" />
-      <div>
-        0
-      </div>
+      <CartWidget />
     </header>
   );
 };

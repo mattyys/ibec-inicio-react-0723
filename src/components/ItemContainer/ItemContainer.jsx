@@ -5,9 +5,10 @@ import Item from "../Item/Item";
 import { useEffect, useState } from "react";
 import RingLoader from "react-spinners/ClipLoader";
 
+
 function ItemContainer() {
   //1. se define un endpoint para comenzar a trabajar con los productos
-  const url = " https://run.mocky.io/v3/a5b866d9-cf81-4a7b-9449-bc9bd1feaf8f";
+  const url = "https://run.mocky.io/v3/34251d7b-b401-4045-ac0e-ac2bf2112400";
 
   //2. se defina un estado para guardar los productos que me deveulve el api
   const [products, setProducts] = useState([]);
@@ -21,16 +22,16 @@ function ItemContainer() {
       const data = await response.json();
       setProducts(data);
     } catch (err) {
-        console.error(err);
+      console.error(err);
     }
   };
   useEffect(() => {
     getProducts();
     //esta funcion ejecuta un bloque de codigo una sola vez
     /*2.Aca aplicamos el fetch que devuelve una promesa y lo uysamos conlas funciones then y catch*/
-   // fetch(url)
-   //   .then((response) => response.json)
-   //   .then((data) => setProducts(data));
+    // fetch(url)
+    //   .then((response) => response.json)
+    //   .then((data) => setProducts(data));
   }, []); //este es un array de dependencias y esta vacio el useeffect lo ejecuta una sola vez
 
   //se utiliza la funcion de cortocircuito
@@ -48,11 +49,10 @@ function ItemContainer() {
           return <Item product={prod} key={prod.id} />;
         })
       ) : (
-        <RingLoader />
+        <RingLoader color="{var(--primary-color)}"/>
       )}
-      
     </div>
   );
-};
+}
 
 export default ItemContainer;

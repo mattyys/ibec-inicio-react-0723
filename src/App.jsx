@@ -1,9 +1,9 @@
-//import './App.css'
+import './App.css'
 //se importa componente button
 //import Button from './components/Button/Button';
 //import ItemCount from './components/ItemCount/ItemCount';
-import ItemContainer from './components/ItemContainer/ItemContainer'
-import NavBar from './layouts/NavBar/NavBAr'
+import ItemContainer from './components/ItemContainer/ItemContainer.jsx';
+import NavBar from './layouts/NavBar/NavBar.jsx';
 //import ItemListContainerMeli from './components/apiMELI/ItemListContainerMeli.jsx'
 
 function App() {
@@ -16,10 +16,13 @@ function App() {
     
     //<h1>API de Mercado Libre</h1>
     //  <ItemListContainerMeli query={'notebook'} />
-    <main>
-      <NavBar/>
-      <ItemContainer /> 
-    </main>
+      <>
+      
+        <NavBar/>
+      
+        <ItemContainer /> 
+     
+      </>
   )
 }
 
