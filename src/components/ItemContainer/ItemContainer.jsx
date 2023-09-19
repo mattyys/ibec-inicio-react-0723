@@ -1,35 +1,58 @@
 //se crea componente inteligente para traer los datos de la api y realizar la itremlist
-import {arrayProducts}from"../../assets/data/products";
-import './ItemContainer.css';
+
+import "./ItemContainer.css";
 import Item from "../Item/Item";
 import { useEffect, useState } from "react";
-
-
-
+import RingLoader from "react-spinners/ClipLoader";
 
 function ItemContainer() {
-    
-    const [products, setProducts] = useState([]);
-//usestate inicializa un valor y guarda estados
-    useEffect(() => {//esta funcion ejecuta un bloque de codigo una sola vez
-        /*aca va el codigo que se ejecuta cuando se monta el componente*/
-        setProducts(arrayProducts);//la primera vez que se carga ya no se renderiza mas ya queda cargado en la constr[products]
-    },[]);//este es un array de dependencias y esta vacio el useeffect lo ejecuta una sola vez
+  //1. se define un endpoint para comenzar a trabajar con los productos
+  const url = " https://run.mocky.io/v3/a5b866d9-cf81-4a7b-9449-bc9bd1feaf8f";
 
+  //2. se defina un estado para guardar los productos que me deveulve el api
+  const [products, setProducts] = useState([]);
+  //usestate inicializa un valor y guarda estados
 
-    //se utiliza la funcion de cortocircuito  
+  //3.definir una funcion que se encarge de hacer el fecth al api y guyarde los productos
 
-    //se recorre el array de productos con la funcion map
-    //devuelve el elemento del array y lo agregamos mediante un callbacks
-    //al componente item
-    //se debe agregar una key para identidficar el elemento
-    return (<div>
-       {products.length > 0 && products.map((prod)=>{
-        
-            return <Item product={prod} key={prod.id}/>;
-       })}
+  const getProducts = async () => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      setProducts(data);
+    } catch (err) {
+        console.error(err);
+    }
+  };
+  useEffect(() => {
+    getProducts();
+    //esta funcion ejecuta un bloque de codigo una sola vez
+    /*2.Aca aplicamos el fetch que devuelve una promesa y lo uysamos conlas funciones then y catch*/
+   // fetch(url)
+   //   .then((response) => response.json)
+   //   .then((data) => setProducts(data));
+  }, []); //este es un array de dependencias y esta vacio el useeffect lo ejecuta una sola vez
 
-    </div>);
-}
+  //se utiliza la funcion de cortocircuito
+
+  //se recorre el array de productos con la funcion map
+  //devuelve el elemento del array y lo agregamos mediante un callbacks
+  //al componente item
+  //se debe agregar una key para identidficar el elemento
+
+  //se púeden colocar spiner de react
+  return (
+    <div className="product-container">
+      {products.length > 0 ? (
+        products.map((prod) => {
+          return <Item product={prod} key={prod.id} />;
+        })
+      ) : (
+        <RingLoader />
+      )}
+      
+    </div>
+  );
+};
 
 export default ItemContainer;

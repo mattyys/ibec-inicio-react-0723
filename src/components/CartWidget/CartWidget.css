@@ -1,0 +1,11 @@
+.cart-widget{
+    position: relative;
+}
+.cart-widget__count{
+    position: relative;
+    top: -10px;
+    right: -10px;
+    background-color: var(--primary-color);
+    width: 14px;
+    
+}
